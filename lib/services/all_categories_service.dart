@@ -1,16 +1,18 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:store_app/helper/api.dart';
+import 'package:store_app/models/product_model.dart';
 
 class AllCategoriesService {
   Future<List<dynamic>> getAllCategories() async {
-    http.Response response = await http
-        .get(Uri.parse('https://fakestoreapi.com/products/categories'));
-    if (response.statusCode == 200) {
-      List<dynamic> data = jsonDecode(response.body);
-      return data;
-    } else {
-      throw Exception(
-          'There is a problem with status code ${response.statusCode}');
+     List<dynamic> data =
+        await Api().get(url: 'https://fakestoreapi.com/products/categories');
+
+    List<ProductModel> productsList = [];
+    for (var i = 0; i < data.length; i++) {
+      productsList.add(
+        ProductModel.fromJson(data[i]),
+      );
     }
+    return productsList;
   }
-}
+  }
+

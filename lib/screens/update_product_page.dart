@@ -82,11 +82,11 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               CustomButton(
                 title: 'Update',
-                onTap: () {
+                onTap: () async{
                   isLoading = true;
                   setState(() {});
                   try {
-                    updateProduct(product);
+                    await updateProduct(product);
                     showSnackBar(context, 'Success');
                   } catch (e) {
                     showSnackBar(context, e.toString());
@@ -102,8 +102,8 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
     );
   }
 
-  void updateProduct(ProductModel product) {
-    UpdateProductService().updateProduct(
+  Future<void> updateProduct(ProductModel product) async{
+    await UpdateProductService().updateProduct(
       title: productName==null ? product.title : productName!,
       price: price == null ? product.price.toString(): price!,
       desc: desc == null ? product.description : desc!,

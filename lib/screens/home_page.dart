@@ -29,8 +29,24 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: const Center(
-        child: CustomCard(),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          right: 16.0,
+          top: 55.0,
+        ),
+        child: GridView.builder(
+          clipBehavior: Clip.none,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1.2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 100,
+          ),
+          itemBuilder: (context, index) {
+            return const CustomCard();
+          },
+        ),
       ),
     );
   }

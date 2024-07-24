@@ -18,8 +18,6 @@ class CustomCard extends StatelessWidget {
                 spreadRadius: 0,
                 offset: const Offset(5, 5)),
           ]),
-          height: 130,
-          width: 220,
           child: const Card(
             elevation: 10,
             child: Padding(
@@ -63,11 +61,11 @@ class CustomCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 20,
-          bottom: 65,
+          right: 10,
+          top: 10,
           child: Image.network(
             'https://i.pravatar.cc',
-            height: 60,
+            height: 50,
           ),
         ),
       ],

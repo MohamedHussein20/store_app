@@ -10,6 +10,7 @@
 analyzer:
   errors:
     missing_required_param: ignore
+    must_be_immutable: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

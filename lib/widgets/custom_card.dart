@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/models/product_model.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
-    super.key,
-  });
-
+  CustomCard({super.key, required this.product});
+  ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,10 +17,10 @@ class CustomCard extends StatelessWidget {
                 spreadRadius: 0,
                 offset: const Offset(5, 5)),
           ]),
-          child: const Card(
+          child: Card(
             elevation: 10,
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 16,
               ),
@@ -30,26 +29,26 @@ class CustomCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'HandBag LV',
-                    style: TextStyle(
+                    product.title.substring(0, 11),
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        r"$225",
-                        style: TextStyle(
+                        r'$' '${product.price.toString()}',
+                        style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.favorite,
                         color: Colors.red,
                       ),
@@ -64,8 +63,9 @@ class CustomCard extends StatelessWidget {
           right: 10,
           top: 10,
           child: Image.network(
-            'https://i.pravatar.cc',
-            height: 50,
+            product.image,
+            height: 60,
+            width: 60,
           ),
         ),
       ],

@@ -1,13 +1,15 @@
-
 class ProductModel {
   final int id;
   final String title;
   final num price;
   final String description;
   final String image;
+  final String category;
+
   final RatingModel rating;
 
   ProductModel({
+    required this.category,
     required this.rating,
     required this.id,
     required this.title,
@@ -18,6 +20,7 @@ class ProductModel {
 
   factory ProductModel.fromJson(jsonData) {
     return ProductModel(
+      category: jsonData['category'],
       id: jsonData['id'],
       title: jsonData['title'],
       price: jsonData['price'],

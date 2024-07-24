@@ -18,7 +18,7 @@ class UpdateProductPage extends StatefulWidget {
 class _UpdateProductPageState extends State<UpdateProductPage> {
   String? productName, desc, image;
 
-  String? price;
+  dynamic price;
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -104,10 +104,10 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   void updateProduct(ProductModel product) {
     UpdateProductService().updateProduct(
-      title: productName!,
-      price: price!,
-      desc: desc!,
-      image: image!,
+      title: productName==null ? product.title : productName!,
+      price: price == null ? product.price.toString(): price!,
+      desc: desc == null ? product.description : desc!,
+      image: image == null ? product.image : image!,
       category: product.category,
     );
     isLoading = false;

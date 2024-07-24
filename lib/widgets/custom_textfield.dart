@@ -19,7 +19,7 @@ class CustomTextfield extends StatelessWidget {
       obscureText: obsecureText!,
       onChanged: onChanged,
       style: const TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
       cursorColor: Colors.grey,
       decoration: InputDecoration(

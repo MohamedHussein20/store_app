@@ -9,6 +9,7 @@
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
   errors:
+    body_might_complete_normally_nullable: ignore
     missing_required_param: ignore
     must_be_immutable: ignore
 include: package:flutter_lints/flutter.yaml
